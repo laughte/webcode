@@ -1,0 +1,201 @@
+
+hr{
+    border: none;
+    height: 4px;
+    background-color: rgba(255, 0, 119,0.1);
+}
+
+@media only screen and (max-width: 550px){
+    body{font-size: 12px;}
+    .navlist>li,p{
+    font-size: 12px;
+    letter-spacing: 0px;
+    }
+    .navlist,.navhead p{
+    padding-left: 5px;
+    }
+    .container{margin-top:10px;}
+
+}
+@media only screen and (min-width: 550px){
+    .navlist>li,p{
+    font-size: 16px;
+    letter-spacing: 4px;
+    }
+    .navlist, .navhead p{
+    padding-left:25px;
+    }
+    .container{margin-top:50px;}
+}
+
+.col-2,.col-3{
+    border-radius: 8px;
+    background: rgba(255, 255, 255,0.9);
+    height: 1000px;
+    padding: 0;
+}
+.navhead{height: 60px;}
+.navhead p{
+    padding-top: 20px;
+    font-size: 18px;
+    
+}
+
+.navlist,.navhead p{
+    cursor: pointer;
+    width: 100%;
+    height: 40px;
+    color: rgb(255, 0, 119);
+    /* border: 01px solid rgba(255, 0, 0 ,0.1); */
+}
+.navlist>li{
+    padding-top: 0px;
+    text-align: start;
+}
+.navlist>li:hover{color: rgb(1, 149, 247);}
+.comment::-webkit-input-placeholder{color: rgba(255, 0, 119,0.6)}    /* 使用webkit内核的浏览器 */
+.comment:-moz-placeholder{color: rgba(255, 0, 119,0.6)}                  /* Firefox版本4-18 */
+.comment::-moz-placeholder{color: rgba(255, 0, 119,0.6)}                  /* Firefox版本19+ */
+.comment:-ms-input-placeholder{color: rgba(255, 0, 119,0.6)}           /* IE浏览器 */
+
+.inputname::-webkit-input-placeholder{color: rgba(255, 0, 119,0.6)}    /* 使用webkit内核的浏览器 */
+.inputname:-moz-placeholder{color: rgba(255, 0, 119,0.6)}                  /* Firefox版本4-18 */
+.inputname::-moz-placeholder{color: rgba(255, 0, 119,0.6)}                  /* Firefox版本19+ */
+.inputname:-ms-input-placeholder{color: rgba(255, 0, 119,0.6)}           /* IE浏览器 */
+
+.formstyle .comment{
+    outline:0;
+    -web-kit-appearance:none;
+    -moz-appearance: none;
+    box-shadow: none;
+    border-radius: 8px;
+    width: 100%;
+    height: 120px;
+    padding: 10px;
+    font-size: 18px;
+    color:  rgb(255, 0, 119);
+    background:  rgba(255, 255, 255,0.8);
+    filter: alpha(opacity=0);
+    border: rgba(255, 0, 119,0) solid 1px;
+    resize:inherit;
+}
+.formstyle form .btn{
+    width: 100px;
+    background:rgba(255, 255, 255,0.8);
+    letter-spacing: 6px;
+    color:rgb(255, 0, 119) ;
+    border: 1px solid rgba(255, 0, 119,0);
+   
+ }
+ .formstyle form .inputname{
+    width: 220px;
+    background:rgba(255, 255, 255,0.8);
+    letter-spacing: 4px;
+    color:rgb(255, 0, 119) ;
+    border: 1px solid rgba(255, 0, 119,0.1);
+    outline: 0;
+    cursor:text;
+ }
+ .formstyle form p{
+     display: none;
+ }
+
+/*滚动条样式*/
+.messageshow::-webkit-scrollbar {
+    /*滚动条整体样式*/
+    width: 0px;
+    /*高宽分别对应横竖滚动条的尺寸*/
+    height: 0px;
+}
+
+.messageshow::-webkit-scrollbar-thumb {
+    /*滚动条里面小方块*/
+    border-radius: 10px;
+    box-shadow: inset 10px 10px 5px rgba(254, 246, 255, 0.8);
+    background: rgba(250, 246, 255, 0.8);
+}
+
+.messageshow::-webkit-scrollbar-track {
+    /*滚动条里面轨道*/
+    box-shadow: inset 0 0 5px rgba(223, 206, 235, 0.2);
+    border-radius: 0;
+    background: rgba(234, 204, 235, 0.1);
+}
+.messageshow{
+    /* margin-top: 5px; */
+    margin-bottom: 5px;
+    border-radius: 8px;
+    background:  rgba(255, 255, 255,0.8);
+    border: 1px solid rgba(255, 0, 119,0);
+    height: 830px;
+    overflow: scroll;
+    
+}
+
+.info{
+    margin-bottom: 0px;
+    border-bottom: 5px solid rgba(255, 0, 119,0.1);
+    /* border-radius: 8px; */
+    padding: 5px 20px;
+    background: rgba(255, 255, 255,0.8);
+    color:rgb(255, 0, 119) ;
+}
+.info .username{
+    margin-top: 5px;
+    font-size: 14px;
+    text-align: start;
+    color:rgb(255, 0, 119) ;
+}
+.infotext{
+    line-height:25px;
+    margin-bottom: 10px;
+    color: rgb(255, 0, 119);
+    letter-spacing: 3px;
+    height: auto;
+    text-align: start;
+    /* text-indent: 38px; */
+}
+.info>.infooperation{
+    width:100%;
+    overflow: hidden;
+    margin-bottom: -5px;
+}
+.infooperation>.infotime{
+    float:left;
+    font-size: 14px;
+    color:rgb(228, 166, 195);
+}
+.infooperation>.infohandle{
+    float:right;
+    font-size: 12px;
+
+}
+.infohandle>a{
+    text-decoration: none;
+    color:rgb(255, 0, 119);
+    background: url(/static/icon/icons.png) no-repeat -664PX -2200PX;
+    padding-left: 25px;
+    margin-left: 10px;
+}
+.infohandle>a:nth-child(2){
+    background: url(/static/icon/icons.png) no-repeat -664PX -2265PX;
+    }
+.infohandle>a:nth-child(3){
+    background: url(/static/icon/icons.png) no-repeat -281PX -1049PX;
+    }
+    
+.infohandle>a:hover{
+    background: url(/static/icon/icons.png) no-repeat -730PX -2199PX;
+    }
+.infohandle>a:nth-child(2):hover{
+    background: url(/static/icon/icons.png) no-repeat -730PX -2266PX; 
+    }
+.infohandle>a:nth-child(3):hover{
+    background: url(/static/icon/icons.png) no-repeat -410PX -1045PX;   
+    }
+
+
+
+.usercollect ,.usersetting,.userinfo{
+    display: none;
+}

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="referrer" content="no-referrer">
+    <link rel="shortcut icon" href="/static/icon/favicon.ico" />
+    <link rel="bookmark" href="/static/icon/favicon.ico" />
+    <script src="./static/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="./static/picture.css" rel='stylesheet'>
+    <link href="./static/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./static/msgboard.css" rel='stylesheet'>
+    <link rel="stylesheet" href="./static/signinform.css" rel='stylesheet'>
+    <meta name="referrer" content="no-referrer">
+    <title>SEX图库</title>
+</head>
+
+<body>
+    <div class="msgboard">
+        <div class="container">
+            <div class="row">
+                <div class="col-2">
+                    <div class="navhead">
+                        <span class='usericon'></span>
+                        <!-- <p>用户:{{username}}</p> -->
+                    </div>
+
+                    <div class='navlist'>
+                        <li id="permsg">
+                            给我留言
+                        </li>
+                    </div>
+                    <div class='navlist'>
+                        <li id="perselect">
+                            个人收藏
+                        </li>
+                    </div>
+                    <div class='navlist'>
+                        <li id="perinfo">
+                            个人信息
+                        </li>
+                    </div>
+                    <HR>
+                    <div class='navlist'>
+                        <li id="persetting">
+                            个人设置
+                        </li>
+                    </div>
+
+
+                </div>
+                <div class="formstyle col-10">
+                    <textarea class='comment' name='comment' placeholder="来说点什么吧!" form="usrform" target="nm_iframe"></textarea>
+
+                    <form action="/creatmsgboard" id="usrform" method="POST" target='myframe'>
+                        <input type="text" style="display:none" class='btn inputname ' name="uname" value={{username}}>
+                        <input type="button" class="btn" value="留言板" disabled>
+                        <input class='btn' id='btn' name='btn' type="button" value="发送" disabled>
+                    </form>
+                    <div class="messageshow">
+                        <!-- {% for i in data %}   
+                        <div class="info">
+                            <p class="username">{{i[1]}}</p>
+                            <p class="infotext">{{i[2]}}</p>
+                            <p class="infooperation">
+                                <span class="infotime">{{i[3]}}</span>
+                                <span class="infohandle">
+                                    <a class="infoTop" href="javascript:;">{{i[4]}}</a>
+                                    <a class="infoDown" href="javascript:;">{{i[5]}}</a>
+                                    <a class="infoDel" href="javascript:;">删除</a>
+                                </span>
+                            </p>
+                        </div>
+                        {% endfor %}        -->
+                    </div>
+                </div>
+                <div class="usercollect col-10">内容正在开发中...... <br>有什么想法请给我留言吧 </div>
+                <div class="userinfo col-10">内容正在开发中...... <br>有什么想法请给我留言吧 </div>
+                <div class="usersetting col-10">内容正在开发中...... <br>有什么想法请给我留言吧其实不留也没关系 </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="signinform" onload="onload()">
+        <form action="" method="POST" class="container">
+            <div class="title">
+
+                <h1>注册SEX图库账号</h1>
+
+            </div>
+            <div class="name">
+                <div class="nameb">
+                    <input class="named" type="text" name="username">
+                    <div class="holdname">输入用户名</div>
+                    <!-- <input class='alrpsd' type="password"> -->
+                </div>
+            </div>
+            <div class="email">
+                <div class="emailb">
+                    <input class="emaild" type="email" name="email">
+                    <div class="emsg">输入邮箱账号</div>
+                </div>
+            </div>
+
+            <div class="tel">
+                <div class="telb">
+                    <input class="teld" type="tel" name="tel">
+                    <div class="tel1">输入手机号码</div>
+                </div>
+            </div>
+
+            <div class="pwd">
+                <div class="pwd1 pwd12">
+                    <input class="pwdd1" type="password" name="password">
+                    <div>密码</div>
+                </div>
+                <div class="pwd2 pwd12">
+                    <input class="pwdd2" type="password" name="password">
+                    <div>确认</div>
+                </div>
+            </div>
+            <div class="sub">
+                <div class="sub1">
+                    <input id="alredsub" type="button" value='已有账号?点击登陆'>
+                </div>
+                <div class="sub2">
+                    <input class='subtn' type="button" name="submit" value='注册'>
+                </div>
+            </div>
+        </form>
+    </div>
+    <nav>
+        <input type="button" class="backbtn navbtnstyl" value="< 返回">  
+        <input type="button" class="givemsgbtn navbtnstyl" value="给我留言吧"/>
+        <div class='navbox'>
+            <input type="button" class="signbtn navbtnstyl" value="登陆或注册"/>
+        </div>
+    </nav>
+
+    <div class="showp">
+        <div class="button">收起</div>
+        <div class="showpic"></div>
+    </div>
+
+    <div class="allcontent">
+
+        {% for i in data %}
+
+        <div class="oldst">
+
+            <div class="folder">
+
+                <div class="tmsg">
+                    <p>{{ i[1][0] }}</p>
+                </div>
+                <img src="{{ i[0][0][1] }}" src='' alt="">
+
+
+                {% for e in i[0] %}
+                <li class="img">
+                    <img scr="{{e[1]}}" alt="">
+                    <div class="icon">
+                        <a class='a1' href="javascript:void(0);">{{ e[2] }}</a>
+                        <a class='a2' href="javascript:void(0);">{{ e[3] }}</a>
+                        <a class='a3' href="javascript:void(0);">{{ e[4] }}</a>
+                        <a class='a4' href="javascript:void(0);"></a>
+                    </div>
+                </li>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}    
+    </div>
+</body>
+<script src="./static/picture.js"></script>
+<script src="./static/msgboard.js"></script>
+<script src="./static/signinform.js"></script>
+<script>
+   
+</script>
+
+</html>

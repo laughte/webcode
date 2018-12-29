@@ -1,0 +1,364 @@
+body{
+    font-family: '微软雅黑';
+    color: rgb(255, 0, 119);
+}
+a{text-decoration:none
+} 
+a:hover{text-decoration:none;
+    color: white;
+}
+img {
+    width: auto;
+    border-radius: 8px;
+    -webkit-filter: saturate(75%);
+    /* Chrome, Safari, Opera */
+    filter: saturate(75%);
+}
+
+@media only screen and (max-width: 500px) {
+    img {
+        height: 280px;
+    }
+
+    .oldst {
+        height: 280px;
+    }
+
+    .folder {
+        width: auto;
+        height: 280px;
+    }
+    .img{
+        height: 280px;
+    }
+
+    .showp p {
+        text-align: start;
+        margin-left: 23%;
+    }
+    .folder .tmsg {
+        display: block;
+        top: 150px;
+    }
+    nav div {
+        left: 110px;
+    }
+    nav .backbtn{
+        left: 5px;
+    }
+    .navhead p{
+        font-size: 14px;
+    }
+    nav .givemsgbtn{
+        right:5px;
+    }
+    nav .navbtnstyl{
+        letter-spacing: 0px;
+        width: 100px;
+        font-size: 14px;
+    }
+   
+}
+
+@media only screen and (min-width: 500px) {
+    img {
+        height: 320px;
+    }
+
+    .oldst {
+        height: 320px;
+    }
+    .img{
+        height: 320px;
+    }
+
+    .folder {
+        width: auto;
+        height: 320px;
+    }
+
+    .showp p {
+        text-align: center;
+        margin:0 auto;
+    }
+    .folder .tmsg {
+        top: 320px;
+    }
+
+    nav div {
+        right: 50%;
+    }
+    nav .backbtn{
+        left: 20%;
+    }
+    nav .givemsgbtn{
+        right: 20%;
+    }
+    nav .navbtnstyl{
+        letter-spacing: 6px;
+        width: 150px;
+        font-size: 18px;
+    }
+   
+}
+
+.allcontent {
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly
+}
+
+.allcontent .oldst .folder li {
+    background-color: rgb(198, 139, 253);
+    list-style: none;
+    margin: 0 0 8px 8px;
+}
+
+.img {
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+    display: none;
+    margin-bottom: 10px;
+}
+
+.img .icon {
+    position: absolute;
+    color: antiquewhite;
+    border-radius: 0 0 8px 8px;
+    opacity: 0.8;
+    bottom: -30px;
+    height: 30px;
+    width: 100%;
+    background-color: aqua;
+}
+
+.img .icon a {
+    margin-left: 15px;
+    line-height: 0;
+    color: aliceblue;
+    font-size: 12px;
+    padding-left: 25px;
+    background: url(/static/icon/icons.png) no-repeat -601px -601px;
+}
+
+.img .icon a:nth-child(2) {
+    background: url(/static/icon/icons.png) no-repeat -342px -154px;
+}
+
+.img .icon a:nth-child(3) {
+    background: url(/static/icon/icons.png) no-repeat -280px -2202px;
+}
+
+.img .icon a:nth-child(4) {
+    background: url(/static/icon/icons.png) no-repeat -281PX -1049PX;  
+}
+
+.form {
+    display: none;
+    opacity: 0.7;
+}
+
+
+.oldst {
+    position: relative;
+    width: auto;
+    margin-bottom: 10px;
+}
+
+.folder {
+    overflow: hidden;
+    position: relative;
+}
+
+.folder .tmsg {
+    color: rgb(255, 0, 119);
+    font-size: 18px;
+    height: 80px;
+    position: absolute;
+    width: 100%;
+    background-color: rgba(245, 245, 245, 0.7);
+    z-index: 9;
+}
+.folder .tmsg p{
+    text-align: center;
+}
+
+.folder li img {
+    display: none;
+
+}
+
+.button {
+    left: 5%;
+    top: 10px;
+    position: fixed;
+    display: none;
+    text-align: center;
+    padding-left: 5px;
+    width: 69px;
+    height: 30px;
+    letter-spacing: 8px;
+    color: rgb(255, 255, 255);
+    border: 1px solid white;
+    border-radius: 5px;
+    background-color: rgba(0, 255, 255, 0);
+    cursor: pointer;
+    z-index: 11;
+    font-size: 20px;
+    font-family: "微软雅黑";
+    font-weight: bold;
+}
+
+.showpic {
+    padding: 15px;
+    top: 50px;
+    display: none;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    position: fixed;
+    border-radius: 8px;
+    background: rgba(253, 249, 255, 0.9);
+    width: 90%;
+    height: 900px;
+    left: 5%;
+    overflow: scroll;
+    z-index: 09;
+}
+
+/*滚动条样式*/
+.showpic::-webkit-scrollbar {
+    /*滚动条整体样式*/
+    width: 0px;
+    /*高宽分别对应横竖滚动条的尺寸*/
+    height: 0px;
+}
+
+.showpic::-webkit-scrollbar-thumb {
+    /*滚动条里面小方块*/
+    border-radius: 0px;
+    box-shadow: inset 0 0 5px rgba(230, 203, 233, 0.2);
+    background: rgba(211, 196, 228, 0.2);
+}
+
+.showpic::-webkit-scrollbar-track {
+    /*滚动条里面轨道*/
+    box-shadow: inset 0 0 5px rgba(223, 206, 235, 0.2);
+    border-radius: 0;
+    background: rgba(234, 204, 235, 0.1);
+}
+
+.showp {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: rgba(220, 199, 228, 0.5);
+    z-index: 10;
+}
+
+.showp p {
+    font-size: 25px;
+    font-family: "微软雅黑";
+    font-weight: bold;
+    color: white;
+    width: 80%;
+    display: block;
+    margin-top: 7px;
+
+}
+
+/* .showpic li img {
+    height: 320px;
+    width: auto;
+    
+} */
+
+
+nav {
+    top: 0;
+    width: 100%;
+    height: 40px;
+    position: fixed;
+    font-size: 18px;
+    color: white;
+    background-color: rgb(255, 0, 119);
+    display: block;
+    text-align: center;
+    z-index: 100;
+    letter-spacing: 3px;
+}
+nav .backbtn{
+    display: none;
+    cursor: pointer;
+    position: absolute;
+}
+    
+nav div {
+    position: absolute;
+    top: 0px;
+    width: auto;
+    height: 40px;
+    letter-spacing: 5px;
+    cursor: pointer;
+}
+nav .navbtnstyl{
+    cursor: pointer;
+    outline:0;
+    -web-kit-appearance:none;
+    -moz-appearance: none;
+    box-shadow: none;
+    border-radius:5px;
+    filter: alpha(opacity=0);
+    height: 40px; 
+    color: rgb(255, 0, 119);
+    background: rgba(255, 255, 255, 0.8);
+    border: rgb(255, 0, 119) solid 1px;
+}
+nav .navbtnstyl:hover{
+    color: rgb(255, 255, 255);
+    background:rgba(255, 255, 255, 0.3);
+    /* border: rgb(255, 255, 255) solid 1px; */
+}
+
+nav div .username{
+    padding-top: 5px;
+    /* text-decoration-color: initial; */
+    font-size: 18px;
+    border:none;
+    height: 40px;
+    text-align: end;
+    list-style: none;
+    width: auto;
+    cursor: pointer; /* 鼠标移入按钮范围时出现手势 */
+    outline: none; /* 不显示轮廓线 */
+    background-color: rgb(255, 0, 119);
+    /* display: none; */
+}
+
+nav  .givemsgbtn{
+    position: absolute;
+    /* display: none;  */
+   
+}
+
+
+.msgboard{
+    display: none;
+    position: fixed;
+    width: 100%;
+    top: 20px;
+    background: rgba(231, 228, 233, 0.5);
+    z-index: 100;
+}
+.signinform{
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 20px;
+    z-index: 100;
+    background: rgba(231, 228, 233, 0.5);
+}
