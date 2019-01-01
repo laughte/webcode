@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.min.js"  ></script>
+</head>
+<body>
+
+
+<!--容器-->
+    <div id="app">
+<!--        添加新名称-->
+        <div>
+        <input v-model='uname'>  <input type="button" @click='add' value="按钮">
+        </div>
+        <ul>
+            <li v-for = "item in list">编号:{{item.id}}----姓名:{{item.name}}</li>
+        </ul>
+    </div>
+</body>
+<script>
+    
+    const vm = new Vue({
+        el:'#app',
+        data:{
+            uname:'',
+            list:[
+                {id:0,name:'刘策'},
+                {id:1,name:'刘寒'},
+                {id:2,name:'刘邦'},
+                {id:3,name:'刘秀'}
+            ]
+        },
+        methods:{
+            add(){
+                var newuser = {id:this.list.length,name:this.uname}
+                this.list.push(newuser)
+            }
+        }
+      
+        
+    })
+    
+    </script>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.min.js"></script>
+    <link rel="stylesheet" href="../../lib/bootstrap-4.2.1-dist/css/bootstrap.css">
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model='n1'>
+        <select v-model='func'  name="" id="">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+        <input type="text" v-model="n2"> 
+        
+        <button @click='calc' >=</button> <label for="">{{msg}}</label><br>
+        
+        
+<!--        v-if的特点:每次都会重新删除和创建dom元素 ,有较高的切换性能消耗-->
+<!--        v-show 的特点:每次不会重新进行dom删除和传建操作,只是切换元素的display:none/block 样式,有较高的初始渲染性能消耗-->
+        
+        <h3 v-show='flag'>这是v-show控制的元素</h3>
+        <h3 v-if='flag'>这是v-if控制的元素</h3>
+        <button @click='flag=!flag'>FLAG</button>
+        
+        
+    </div>
+    <form method="post" action="">
+        <div class="form-group">
+            <label for="my-input">Text</label>
+            <input id="my-input" class="form-control" type="text">
+        </div>
+    </form>
+    
+    <script>
+        const vm = new Vue({
+            el:"#app",
+            data:{
+                n1:0,
+                n2:0,
+                func:'+',
+                msg:0,
+                flag:true,
+            },
+            methods:{
+//                calc(){
+//                    if(this.func==="+"){
+//                        this.msg = parseInt(this.n1)+parseInt(this.n2)
+//                    }else if (this.func==="-"){
+//                        this.msg = parseInt(this.n1)-parseInt(this.n2)
+//                    }else if (this.func==="*"){
+//                        this.msg = parseInt(this.n1)*parseInt(this.n2)
+//                    }else{
+//                        this.msg = parseInt(this.n1)/parseInt(this.n2)
+//                    }
+//                }
+                calc(){
+                    let codestr = "parseInt(this.n1)"+this.func+"parseInt(this.n2)"
+                    this.msg = eval(codestr)
+                }
+            }
+        });
+    
+    </script>
+</body>
+</html>

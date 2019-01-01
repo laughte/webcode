@@ -1,0 +1,33 @@
+
+h1 ,h2,h3,h4,h5,h6,a{color:palevioletred ;text-decoration: none; }
+a:hover{color: rgb(254, 173, 0)}
+/* 太极图 */
+.radios{transition: all 10s; position: absolute; left: 5px;overflow: hidden; top: 5px; display: flex; align-items:center; border-radius: 50%;width: 50px;height: 50px;background:linear-gradient(rgb(216, 112, 147) 50%,rgb(255, 255, 255) 50%);  }
+.radios::before , .radios::after{ width: 50%;height:50%;border-radius: 50%;display: block;content: "";}
+.radios::before {background:radial-gradient(rgb(216, 112, 147) 25%,rgb(255, 255, 255) 25%) ;/*animation: changesize 1s infinite  linear;animation-delay: -1s; transform-origin:100% 50%;*/}
+.radios::after{background:radial-gradient(rgb(255, 255, 255) 25%,rgb(216, 112, 147) 25%) ;/*animation: changesize 1s infinite  linear ; transform-origin:0% 50%;*/}  
+.radios:hover{transform: rotate(7200deg);}
+/* 太极图 */
+h1{letter-spacing: 10px;}
+h4,p,a{letter-spacing: 5px;}
+hr{color: #A2C241; opacity: 0.3;}
+header{height: 150px; text-align: center; /* border: pink dotted;*/} 
+header h1{margin-top:45px;color: rgb(216, 112, 147)}
+.body-page{width: 800px; clear: both; margin-left: auto; margin-right: auto; overflow: hidden;   }
+
+.left{width: 560px;float: left; clear: left; ;}
+.left .text-are {margin-left: 15px; margin-bottom: 60px; color: palevioletred;}
+.left .text-are .are-icon li{ float: right;  margin-left: 22px; color: rgb(156, 187, 62);  }
+textarea{display:none;width: 510px; color: #5d7222; letter-spacing: 5px; font-size: 16px; padding: 10px 15px; border: dashed 1px palevioletred ;outline: none;resize: vertical;}
+.givelist{display: none;  float: right; margin-right: 20px; font-size:14px; color: #A2C241}
+span{display: none; color:#5d7222;font-size: 13px;  }
+.zushiText{color: rgb(175, 81, 184); }
+article{display: none; width: 545px;color:rgb(19, 90, 92);letter-spacing: 5px;font-size: 15px; line-height: 24px;  }
+article::before{color: brown}
+.right{width: 120px; float:right;  clear: right; }
+.right .title .title-left{height: 21px ; width: 3px; margin-top: 1px; float: left; margin-left: 20px; clear: left; background-color: #A2C241; margin-right: 8px;}
+.right .cont a{font-size: 14px;  text-align: center; width: 70px; height: 22px;line-height: 22px; float: left;margin-top: 15px; margin-left: 20px; border: 1px dotted #a2c241; border-radius: 6px;}
+
+
+
+    

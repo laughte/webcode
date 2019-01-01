@@ -28,29 +28,29 @@ def get_name():
         datalist.append(data)
     a = datalist
     b = tablesname
-    data = list(zip(a, b))
-    #data = alldata[0:50]
+    alldata = list(zip(a, b))
+    data = alldata[0:50]
     return render_template('picture.html', data=data)
     
 
-# @app.route('/getmore', methods=['GET','post' ])
-# def getmore():
+@app.route('/getmore', methods=['GET','post' ])
+def getmore():
  
-#     alltable = 'show tables'
-#     dbname='sex_picture'
-#     datas = cursor_datas(alltable,dbname)
-#     tablesname = tuple(datas[::-1])
-#     datalist=[]
-#     for i in tablesname:
-#         alldata = "SELECT * FROM `"+i[0]+"`;"
-#         data =cursor_datas(alldata,dbname)
-#         datalist.append(data)
-#     a = datalist
-#     b = tablesname
-#     alldata = list(zip(a, b))
-#     max = request.form['numbmax']
-#     data = alldata[0:50*max]
-#     return jsonify(data)
+    alltable = 'show tables'
+    dbname='sex_picture'
+    datas = cursor_datas(alltable,dbname)
+    tablesname = tuple(datas[::-1])
+    datalist=[]
+    for i in tablesname:
+        alldata = "SELECT * FROM `"+i[0]+"`;"
+        data =cursor_datas(alldata,dbname)
+        datalist.append(data)
+    a = datalist
+    b = tablesname
+    alldata = list(zip(a, b))
+    max = request.form['numbmax']
+    data = alldata[0:50*max]
+    return jsonify(data)
 
 
 @app.route('/checkname', methods=['POST', ])
@@ -108,20 +108,13 @@ def ajax_cheak3():
 def ajax_insertdb():
     title = request.form['name']
     href = request.form['href']
-    stateN = request.form['stateN']
-    print(stateN)
-    data=''
-    #print(title,href,likenumber) 
-    if stateN == '333':
-        data = "DELETE FROM "+title+" WHERE href = '%s'" % (href)
-    elif stateN == '888':
-        data = "UPDATE "+title+" SET see = see+1 WHERE href = '%s' " %(href)    
-    else:
-        data = "UPDATE "+title+" SET likenumber = likenumber+1 WHERE href = '%s' " %(href)
+    likenumber = request.form['like']
+    #print(title,href,likenumber)   
+    data = "UPDATE "+title+" SET likenumber = likenumber+1 WHERE href = '%s' " %(href)
+    #data = "UPDATE "+title+" SET likenumber = likenumber + 1 WHERE href = "+href+""
     dbname='sex_picture'
     req = cursor_datas(data,dbname)
     return jsonify(req)
-
 
 @app.route('/messageboard',methods=['POST',]) 
 def message():

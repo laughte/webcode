@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.min.js"></script>
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+
+        <h1 v-text='msg'></h1>
+        <p v-cloak>{{msg}}</p>
+        <!--        v-text 没有闪烁问题,但会覆盖元素中原本的内容-->
+        <!--    插值表达式{{}}可以在原有的内容中插入数据-->
+        <p v-html='msg1'></p>
+        <!-- v-bind是vue提供绑定属性的指令 可简写为: 列如v-bind:title为 :title 其中可写合法的js表达式-->
+        <!--vue 中提供了v-on 绑定事件绑定机制 可简写为@ 例如v-on:click 为@click-->
+        <input type='button' value='start' v-bind:title='mytitle' v-on:click="show">
+        <input type="button" value="stop" @click='stop'>
+        <!--       使用 v-model 可实现表单元素和Model中的数据双向绑定-->
+        <input type="text" v-model='msg'>
+
+        //vue-resource基本使用方法
+        <input type="button" @click='postfunc'> //post 方法
+        <input type="button" @click='jsonpfunc'> //jsonp 方法
+
+    </div>
+
+
+    <!--
+    事件修饰器
+    @click.stop 阻止冒泡行为 , @click.prevent 阻止默认行为, @click.capture 捕获事件触发的机制, @click.self实现只有点击当前元素时才会触发事件处理函数, @click.once 事件只触发一次
+-->
+
+    <script>
+        const vm = new Vue({
+            el: '#app', //表示我们new的Vue这个实例要控制页面上的那个区域
+            data: { //el中要用到的数据
+                msg: '哎好烦哦',
+                msg1: '<div>什么鬼哦真是的</div>',
+                mytitle: '这是个按钮',
+                intervalid: null, //在data上定义定时器id
+            },
+            methods: { //这个methods属性中定义了当前vue对象中所有可以使用的方法
+                show() {
+                    if (this.intervalid != null) return;
+                    this.intervalid = setInterval(() => { //设置定时器
+                        console.log(this.msg)
+                        let start = this.msg.substring(0, 1) //取开头的第一个字符
+                        let end = this.msg.substring(1) //获取后面的所有字符
+                        this.msg = end + start
+                    }, 300)
+
+                },
+                stop() { //清除定时器
+                    clearInterval(this.intervalid)
+                    this.intervalid = null
+                },
+                postfunc() { //发送post请求
+                    //手动发起的post请求默认没有表单格式,所有有点服务器处理不了
+                    //可设置post方法的第三个参数,{emulateJSON:true}设置提交的内容类型为普通表单数据格式
+                    this.$http.post('url', {}, {
+                        emulateJSON: true
+                    }).then(result => {
+                        console.log(result.body)
+                    })
+                },
+                jsonpfunc() { //发送jsonp请求 
+                    this.$http.jsonp('url').then(result => {
+                        console.log(result.body)
+                    })
+                }
+
+            }
+        })
+        
+    </script>
+</body>
+
+</html>

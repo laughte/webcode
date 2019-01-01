@@ -1,0 +1,144 @@
+
+.signinform form{
+    font-family: '微软雅黑';
+    color:  rgb(255, 0, 119);
+    border: 1px solid  rgba(255, 0, 119,0.1);
+    text-align: center;
+    margin: 50px  auto;
+    border-radius: 12px;
+    height: auto;
+    padding: 50px 0 50px 0;
+    background: rgba(255, 255, 255,0.9);
+    /* position: absolute; */
+}
+/* input输入文字后背景色变成了黄色 CSS改变（去掉黄色背景） */
+/* .edge-autoSuggestFieldFilled {
+    background-color: rgba(255, 255, 255, 1) !important;
+    background-image: none !important;
+    color:rgb(255, 0, 119) !important;
+} */
+
+.signinform form input:-webkit-autofill,{
+    box-shadow: 0 0 0px 1000px white inset
+}
+/* input:-internal-autofill-previewed, input:-internal-autofill-selected, textarea:-internal-autofill-previewed, textarea:-internal-autofill-selected, select:-internal-autofill-previewed, select:-internal-autofill-selected {
+    background-color: rgb(255, 255, 255) !important;
+    background-image: none !important;
+    color: rgb(255, 0, 119) !important;
+} */
+.signinform form input{  
+    color:  rgb(255, 0, 119);
+    outline:0;
+    -web-kit-appearance:none;
+    -moz-appearance: none;
+    box-shadow: none;
+    border-radius:5px;
+    filter: alpha(opacity=0);
+    background:  rgba(255, 255, 255,1);
+    margin-top: 10px;
+    height: 36px;
+    width: 300px;
+    padding-left: 05px;
+    border: rgb(255, 0, 119) solid 1px;
+    font-size: 18px;
+}
+/* 密码框样式 */
+.signinform form .pwd {     
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+}
+.signinform form .pwd .pwd12{
+    position: relative;
+    width: 150px;
+} 
+
+.signinform form .pwd input{
+    width: 145px;
+}
+
+.signinform form .pwd div div{
+    position: absolute;
+    background-color:  rgba(255, 255, 255,1);
+    top: 15px;
+    left: 25px;  
+}
+/* 按钮样式 */
+.sub{
+    display: flex;
+    justify-content:center;
+}
+.sub div{
+    width: 150px;
+}
+
+.sub .sub1 input{
+    cursor: pointer;
+    width: 150px;
+    color: white;
+    background-color:  rgb(255, 0, 119);
+    font-size: 14px;
+} 
+.sub .sub2 input{
+    color: white;
+    background-color:  rgb(255, 0, 119);
+    width: 145px;
+    letter-spacing: 10px;
+} 
+.sub input:hover{
+    background-color:  white;
+    color: rgb(255, 0, 119);
+}
+
+/* 用户名输入框样式 */
+.name{
+    display: flex;
+    justify-content:center;
+}
+.name .nameb{
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.name .nameb .holdname{
+    position: absolute;
+    background-color: rgba(255, 255, 255,1);
+    top: 15px;
+    left: 45px;  
+}
+/* 邮箱输入框样式 */
+.email{
+   
+    display: flex;
+    justify-content:center;
+    margin-bottom: 15px;      
+}
+.email .emailb{
+    position: relative;
+    text-align: center; 
+}
+.email .emailb .emsg{
+    position: absolute;
+    background-color:  rgba(255, 255, 255,1);
+    top: 15px;
+    left: 45px;     
+}
+
+/* 电话输入框样式 */
+.tel{
+    
+    margin-bottom: 15px;
+    display: flex;
+    justify-content:center;
+}
+.tel .telb{
+    position: relative;
+}
+.tel .telb .tel1{
+    position: absolute;
+    background-color: rgba(255, 255, 255,1);
+    top: 15px;
+    left: 45px;  
+}
+
+.labmsg{color:blue}

@@ -7,10 +7,10 @@ $(function () {
         let scrH = $(window).scrollTop(); //滚动的高度
         //获取整个页面的高度 htmH为设置的滚动到的高度位置
         let htmH = $(document).height() - 100;
-         
+        let max = 1
         //可见高度+滚动高度 超出 设置的高度，触发方法
         if (winH + scrH >= htmH) {
-            let max= winH + scrH - htmH
+            max = max + 1
             console.log(max)
             //到达底部-100的高度，触发方法
             $.post('/getmore', {
@@ -40,7 +40,6 @@ $(function () {
                                     <a class='a1' href="javascript:void(0);">${e[2]}</a>
                                     <a class='a2' href="javascript:void(0);">${e[3]}</a>
                                     <a class='a3' href="javascript:void(0);">${e[4]}</a>
-                                    <a class='a4' href="javascript:void(0);"></a>
                                 </div>
                             </li>    
                         </div>
@@ -92,7 +91,6 @@ $(function () {
         let subvalue = $siginform.find('.subtn').val()
         let divtitle = $siginform.find('.title')
         let formnavhead = $('.navhead')
-        let inputname = $('.formstyle').children('form')
         $.post('/signinform', {
             username,
             email,
@@ -109,7 +107,6 @@ $(function () {
                 //$('.givememsg').css('display','block')
                 $navbox.prepend(usernamed(data))
                 formnavhead.append(usernamed(data))
-                inputname.append(usernamed(data))
             } else {
                 divtitle.append(msgalert(data))
             }
@@ -175,23 +172,6 @@ $(function () {
         
     })
 
-
-      //1.监听删除点击
-      $('body').delegate('.a4', 'click', function () {
-        let $tablename = $(this).parents('.showpic').siblings('p').text()
-        let $href = $(this).parent('.icon').siblings('img').attr('src')
-        $(this).parents('.img').remove()
-        $.post("/like", {
-            name: $tablename,
-            href: $href,
-            stateN: 333
-        },
-        function (data, status) {
-            return;
-        });
-    })
-
-
     //2.监听留言点击
     $('body').delegate('.a2', 'click', function () {
         var imgwd = $(this).parent('div').siblings('img').width()
@@ -216,7 +196,7 @@ $(function () {
         $.post("/like", {
                 name: $tablename,
                 href: $href,
-                stateN:666
+                like:like
             },
             function (data, status) {
                 return;
@@ -226,13 +206,6 @@ $(function () {
 
     //3.监听.img点击
     $('body').delegate('.img img', 'click', function () {
-        let $tablename = $(this).parents('.showpic').siblings('p').text()
-        let $href = $(this).attr('src')
-        $.post("/like", {
-            name: $tablename,
-            href: $href,
-            stateN:888
-        });
         $(this).parent('.img').css({
             'position': 'relative',
             'transform': 'scale(2)',

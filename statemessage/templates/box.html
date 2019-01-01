@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript" src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>
+    <script src="https://cdn.bootcss.com/typed.js/2.0.7/typed.min.js"></script>
+    <style>
+        /* .typed-cursor {
+            opacity: 1;
+            animation: typedjsBlink 0.7s infinite;
+            -webkit-animation: typedjsBlink 0.7s infinite;
+            animation: typedjsBlink 0.7s infinite;
+        }
+
+        @keyframes typedjsBlink {
+            50% {
+                opacity: 0.0;
+            }
+        }
+
+        @-webkit-keyframes typedjsBlink {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.0;
+            }
+            100% {
+                opacity: 1;
+            }
+        } */
+
+        .c1 {
+            color: salmon;
+        }
+
+        .c2 {
+            color: rgb(250, 223, 114);
+        }
+
+        .c3 {
+            color: rgb(198, 250, 114);
+        }
+
+        .c4 {
+            color: rgb(114, 250, 202);
+        }
+
+        .c5 {
+            color: rgb(114, 207, 250);
+        }
+
+        .c6 {
+            color: rgb(200, 114, 250);
+        }
+
+        .c7 {
+            color: rgb(250, 114, 193);
+        }
+
+        body {
+            font-family: "微软雅黑";
+        }
+
+        .pinglun {
+            margin: 0 auto;
+            width: 600px;
+            height: auto;
+        }
+
+        input {
+            display: block;
+            border-style: none;
+            font-size: 25px;
+            color: white;
+            padding: 0;
+            height: 50px;
+            background-color: rgb(243, 226, 245);
+        }
+
+
+        .box2 {
+            width: 600px;
+            height: 55px;
+            margin: 0;
+            padding: 0;
+            border-radius: 8px;
+            font-family: "微软雅黑";
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .box2 .inputstyle {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        #name {
+            font-family: "微软雅黑";
+            border-radius: 8px 0 0 8px;
+            width: 450px;
+            outline: none;
+        }
+
+        .sumbit {
+            font-family: "微软雅黑";
+            text-align: center;
+            border-radius: 0 8px 8px 0;
+            width: 150px;
+            background: rgb(231, 234, 240);
+            font-size: 30px;
+            letter-spacing: 6px;
+            outline: none;
+        }
+
+        textarea {
+            width: 596px;
+            height: 200px;
+            font-size: 18px;
+            border-style: none;
+            background-color: rgb(231, 234, 240);
+            border-radius: 8px;
+            resize: none;
+            outline: none;
+            font-family: "微软雅黑";
+        }
+
+        .box2 .sumbit:hover {
+            background-color: rgb(230, 29, 79)
+        }
+
+     .showtxt {
+            /* background: rgb(105, 107, 112); */
+            margin: 0px auto;
+            list-style: none;
+            
+            margin-top: 5px;
+            padding: 0;
+            width: 600px;
+            height: auto;
+            z-index: 199;
+        }
+
+        .showtxt li {
+            margin-bottom: 10px;
+            height: auto;
+            /* overflow: hidden; */
+            /* border:  1px solid;  */
+            padding: 5px 5px 0 5px;
+            word-wrap: break-word;
+            /* word-spacing: 6px; */
+            letter-spacing: 4px;
+            line-height: 30px;
+            width: 588px;
+            font-size: 20px;
+            padding-top: 5px;
+            border-radius: 0px 0px 8px 8px;
+        }
+
+        .showtxt li span {
+            display: block;
+            font-size: 14px;
+            letter-spacing: 0px;
+            margin-bottom: 0;
+        }
+
+        .showtxt div {
+            margin-top: 5px;
+            font-size: 24px;
+            width: 590px;
+            padding-left: 10px;
+            color: rgb(252, 233, 239);
+            border-radius: 8px 8px 0px 0;
+        }
+
+        .ulimg {
+            overflow: hidden;
+            width: 600px;
+            margin: 0 auto;
+            height: 905px;
+            border-radius: 8px;
+
+        }
+
+        .ulimg .ulwid {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: block;
+        }
+
+        .ulimg ul li img {
+            height: 905px;
+            width: 600px;
+            float: left;
+        }
+
+        @media only screen and (max-width: 500px) {
+            body {
+                background-color: lightblue;
+            }
+        }
+    </style>
+</head>
+
+<body onload="onload()">
+    <div class="ulimg">
+        <ul class="ulwid">
+            <li>
+                <img src="https://s1.ax2x.com/2018/07/27/53MYIG.jpg" alt="53MYIG.jpg" border="0">
+            </li>
+            <li>
+                <img src="https://s1.ax2x.com/2018/07/27/53MWOE.jpg" alt="53MWOE.jpg" border="0">
+            </li>
+            <li>
+                <img src="https://s1.ax2x.com/2018/07/27/53MMQa.jpg" alt="53MMQa.jpg" border="0">
+            </li>
+            <li>
+                <img src="https://s1.ax2x.com/2018/07/27/53MVJK.jpg" alt="53MVJK.jpg" border="0">
+            </li>
+            <li>
+                <img src="https://s1.ax2x.com/2018/07/27/53MQ5n.jpg" alt="53MQ5n.jpg" border="0">
+            </li>
+            <li>
+                <img src="https://s1.ax2x.com/2018/07/27/53MOcz.jpg" alt="53MOcz.jpg" border="0">
+            </li>
+            <li>
+                <img src="https://s1.ax2x.com/2018/07/27/53MdUQ.jpg" alt="53MdUQ.jpg" border="0">
+            </li>
+        </ul>
+    </div>
+
+    <div class="pinglun">
+        <textarea name="comment" id="comment" form="usrform" placeholder="站住!难道你不想留下点东西再走?"></textarea>
+
+        <form class="box2" action="/message" method="POST" id="usrform" target="nm_iframe">
+            <div class="inputstyle">
+                <input type="text" name="username" placeholder="请输入用户名" id="name">
+                <input class="sumbit" type="button" value="提交" id="sumbit">
+            </div>
+        </form>
+
+        <ul class="showtxt">
+            <!-- {% for i in data %}
+            <div> {{ i[1] }}的留言: </div>
+            <li> {{ i[2]}} <span> {{ i[3] }} </span></li>
+            {% endfor %} -->
+
+        </ul>
+    </div>
+    <!-- <iframe id="id_iframe" name="nm_iframe" style="display:none;"></iframe> -->
+
+    <script>
+        var show = $('.showtxt')
+        $('.sumbit').click(function () {
+            let username = $('#name').val()
+            let comment = $('#comment').val()
+            $.post('/message', {
+                username,
+                comment,
+            },function(data){ 
+                $('#comment').val("")  
+                show.prepend(createdom(data))  
+                colorstyle()   
+            })      
+        })
+
+        function onload() {
+            $.post('/message', {
+
+            }, function (data) {
+                //console.log(data)
+                data.forEach((el,i) => {
+                    show.append(createdom(el))  
+                })
+                colorstyle()
+            })
+            
+        }
+
+        function createdom(i) {
+            let vm = `<div> ${ i[1] }的留言: </div>
+                <li> ${ i[2]} <span> ${ i[3] } </span></li>`
+            return vm
+        }
+         //color设置
+        function colorstyle(){
+            let $sp = $(".showtxt");
+            $sp.find('li').each(function (i) {
+                //设置li的字体颜色
+                $(this).addClass("c" + (i % 7 + 1));
+                let divcolor = $(this).css("color")
+                //设置li的边框颜色
+                $(this).css("border", divcolor + "1px solid")
+                //设置div的背景颜色
+                $(this).siblings("div").eq(i).css("background-color", divcolor)
+            })
+        }
+
+
+        $(function () {
+
+            $(".pinglun").on("click", function () {
+                $(this).animate({
+                    "margin-top": "-905",
+                    "marginLeft": "350"
+                }, 600);
+                $(".ulimg").animate({
+                    "marginLeft": "960"
+                }, 600)
+                // alert()
+            })
+        })
+
+        $(".ulimg").on('click', function () {
+            $(".pinglun").animate({
+                "margin-top": "-905",
+                "marginLeft": "350"
+            }, 600);
+            $(this).animate({
+                "marginLeft": "960"
+            }, 600)
+
+        });
+
+       
+
+        //轮播图片
+        $(function () {
+            var imglength = $(".ulimg img").length;
+            var ulwid = imglength * 600;
+            // alert(ulimgwid+"</br>"+ulimghei)
+
+
+            $(".ulimg .ulwid").css({
+                "width": ulwid,
+                "height": 905
+            })
+
+
+            var $divul = $(".ulimg");
+            var $ul = $divul.find(".ulwid");
+            var $img = $ul.find("img")
+            var index = 1;
+            var marginleftspeed = 600;
+            var interval;
+
+            function starslider() {
+                interval = setInterval(function () {
+                    // console.log(new Date());
+                    $ul.animate({
+                        "marginLeft": "-=600"
+                    }, marginleftspeed, function () {
+                        index++;
+                        if (index === imglength) {
+                            index = 1;
+                            $ul.css("marginLeft", 0)
+                        }
+                    })
+                }, 2000)
+            }
+
+            function stopslider() {
+
+                clearInterval(interval)
+
+            }
+
+            $divul.on("mouseenter", stopslider).on("mouseleave", starslider)
+            starslider()
+        })
+    </script>
+</body>
+
+</html>

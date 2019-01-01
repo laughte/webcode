@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    
+</head>
+<body>
+    
+    
+    <div id="app">
+        
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">品牌列表</h3>
+            </div>
+            <div class="panel-body form-line">
+               <label for="">ID <input type="text" v-model='id'> </label>
+                <label for="">名字<input type="text" v-model='name' @keyup.enter='add'></label>
+                <input type="button" value="添加" @click='add' >
+                <label for="">查找 <input type="text" v-model='keywords' v-focus v-color="'green'"></label>
+               
+            </div>
+        </div>
+        
+        <table class='table table-borderd table-hover table-striped'>
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>品牌名称</td>
+                    <td>添加时间</td>             
+                    <td>option</td>
+                </tr>
+                <tr v-for='item in serchitem(keywords)' :key='item.id'>
+                    <td>{{item.id}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.ctime |dataformat}}</td>
+                    
+                    <td><a href="" @click.prevent='del(item.id)'>删除</a></td>
+                </tr>
+            </thead>
+        </table>
+        
+        <p>{{msg }}</p>
+    </div>
+    
+    <script>
+        //
+        Vue.directive('color',{
+            bind:function(el,binding){
+                el.style.color=binding.value
+            }
+        })
+        
+        //使用Vue.direcive()定义全局指令
+        Vue.directive('focus',{
+            bind:function(el){//每当指令绑定到这个元素上的时候,会立即执行这个bind方法,只执行一次
+                //el.focus() 不适用bind方法,因为绑定指令的时候还没插入到dom中,el.focus()没起作用
+                
+            },
+            inserted:function(el){//insert 表示元素插入到dom中的时候触发insert方法 执行一次
+                el.focus()
+            },
+            updated:function(el){//当vNode更新的时候触发updated方法,可能会执行多次
+                
+            },
+        })
+        //自定义全局按键修饰符
+        Vue.config.keyCodes.f2 = 113 
+        
+        
+        //定义一个Vue 全局过滤器
+        Vue.filter('dataformat',function(msg){
+            // replace 方法第一个参数可以传一个字符串外还可以定义一个正则 :/单纯/g 表示全局匹配
+//            return msg.replace(/单纯/g,'邪恶')
+            
+           let dt = new Date(msg)
+           y = dt.getFullYear()
+           m = (dt.getMonth()+1).toString().padStart(2,'0')//字符串方法padStart/padEnd 在字符串开始或结尾添加替换字符
+           d = (dt.getDate()).toString().padStart(2,'0')
+           h = (dt.getHours()).toString().padStart(2,'0')
+           min = (dt.getMinutes()).toString().padStart(2,'0')
+           s = (dt.getSeconds()).toString().padStart(2,'0')
+           //w = dt.getDay()
+           return `${y}-${m}-${d}:${h}-${min}-${s}`
+            
+        })
+        
+    
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'我曾经也是一个单纯的少年,单纯的我傻傻的问,这个世界上还有比我更单纯的人吗',
+                id:'',
+                name:'',
+                keywords:"",
+                list:[
+                    {id:1,name:'宝马',ctime:new Date()},
+                    {id:2,name:'奔驰',ctime:new Date()},
+                ]
+            },
+            methods:{
+                
+                del(id){
+                   // 在数组中用some()方法如果ruturn ture 就会终止这个数组的后续循环
+//                    this.list.some((item,i)=>{
+//                        if(item.id==id){
+//                            this.list.splice(i,1)
+//                            return true
+//                        }
+//                    })
+                    
+                    let i = this.list.findIndex(item=>{
+                        if(item.id ==id){
+                            return true
+                        }     
+                    })
+                    this.list.splice(i,1)
+                },
+                add(){
+                    car = {id:this.id,name:this.name,ctime:new Date()}
+                    this.list.push(car)
+                    this.id=this.name=''
+                },
+                serchitem(keywords){
+                    //方法1
+//                    let newlist=[]
+//                    this.list.forEach(i=>{
+//                        if(i.name.includes(keywords)){
+//                            newlist.push(i)
+//                        }
+//                    })
+//                    return newlist
+                    //方法2
+                   return this.list.filter(i=>{
+                        if(i.name.includes(keywords)){
+                            return i
+                        }
+                    })
+                }
+            }
+        });
+    
+        
+            
+    </script>
+    
+</body>
+</html>
